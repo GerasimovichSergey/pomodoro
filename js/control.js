@@ -1,8 +1,27 @@
-import { startTimer } from './timer.js';
+import { showTime, startTimer } from './timer.js';
 import { state } from './state.js';
 
 
 const btnStart = document.querySelector('.control__btn_start');
+const btnStop = document.querySelector('.control__btn_stop');
+const navigationButtons = document.querySelectorAll('.navigation__btn');
+
+export const changeActiveBtn = (dataUse) => {
+  for (let i = 0; i < navigationButtons.length; i++) {
+    if (navigationButtons[i].dataset.use === dataUse) {
+      navigationButtons[i].classList.add('navigation__btn_active');
+    } else {
+      navigationButtons[i].classList.remove('navigation__btn_active');
+    }
+  }
+}
+
+const stop = () => {
+  state.isActive = false;
+  btnStart.textContent = 'Старт';
+  state.timeLeft = state[state.status] * 60;
+  showTime(state.timeLeft);
+}
 
 export const initControl = () => {
   btnStart.addEventListener('click', () => {
@@ -16,5 +35,9 @@ export const initControl = () => {
       startTimer();
     }
   });
+
+  btnStop.addEventListener('click', stop);
+
+  showTime(state.timeLeft);
 };
 

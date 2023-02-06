@@ -1,8 +1,15 @@
 import { initControl } from './control.js';
+import { state } from './state.js';
 
 
-const initPomidoro = () => {
+const initPomodoro = () => {
   initControl();
+
+  state.activeTodo = {
+    id: 'default',
+    pomodoro: 2,
+    title: 'Помодоро',
+  }
 };
 
-initPomidoro();
+initPomodoro();
