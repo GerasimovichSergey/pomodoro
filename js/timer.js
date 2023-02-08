@@ -13,7 +13,7 @@ export const showTime = (seconds) => {
 };
 
 export const startTimer = () => {
-  state.timeLeft -= 5;
+  state.timeLeft -= 25;
 
   showTime(state.timeLeft);
 
