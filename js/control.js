@@ -16,14 +16,14 @@ export const changeActiveBtn = (dataUse) => {
       navigationButtons[i].classList.remove('navigation__btn_active');
     }
   }
-}
+};
 
-const stop = () => {
+export const stop = () => {
   state.isActive = false;
   btnStart.textContent = 'Старт';
   state.timeLeft = state[state.status] * 60;
   showTime(state.timeLeft);
-}
+};
 
 export const initControl = () => {
   btnStart.addEventListener('click', () => {
